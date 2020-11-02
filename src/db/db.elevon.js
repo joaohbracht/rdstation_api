@@ -1,9 +1,9 @@
 const dbConfig = require("./db.config.js"); 3
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('elevon', 'root', 'root', {
-  host: "localhost",
-  port: 8889,
+const sequelize = new Sequelize('elevo561_dw', 'elevo561_dwbi', ',tDkhl58v5EK', {
+  host: "50.116.87.144",
+  port: 3306,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
 
