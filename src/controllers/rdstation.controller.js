@@ -14,12 +14,12 @@ const insertConversion = (req, res) => {
     origin: json['contact']['funnel']['origin']
   })
     .then(() => {
-      console.log(createResult)
-      res.status(200)
+      console.log(createResult);
+      res.status(200).send({ message: "JSON ok" });
     })
     .catch((error) => {
-      console.log(error)
-      res.status(500)
+      console.log(error);
+      res.status(500).send({ message: "Error to import" });
     });
 
 };
