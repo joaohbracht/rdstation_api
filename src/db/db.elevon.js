@@ -1,0 +1,25 @@
+const dbConfig = require("./db.config.js"); 3
+const Sequelize = require("sequelize");
+
+const sequelize = new Sequelize('elevon', 'root', 'root', {
+  host: "localhost",
+  port: 8889,
+  dialect: dbConfig.dialect,
+  operatorsAliases: false,
+
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle
+  }
+});
+
+const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.rdstation = require("../models/rdstation.model.js")(sequelize, Sequelize);
+
+module.exports = db;
