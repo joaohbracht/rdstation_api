@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const rdstationController = require("../controllers/rdstation.controller");
+const elevonController = require("../controllers/elevon.controller");
+const procaveController = require("../controllers/procave.controller");
 
 let routes = (app) => {
   app.use(express.json());
 
-  router.post("/elevon/rd", rdstationController.insertConversion);
+  router.post("/elevon/rd", elevonController.insertConversionRD);
+  router.post("/procave/rd", procaveController.insertConversionRD);
 
   app.use("/api", router);
 };

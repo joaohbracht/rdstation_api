@@ -1,7 +1,7 @@
 const db = require("../db/db.elevon");
 const dbElevon = db.rdstation;
 
-const insertConversion = (req, res) => {
+const insertConversionRD = (req, res) => {
 
   let json = req.body;
 
@@ -25,5 +25,5 @@ const insertConversion = (req, res) => {
 };
 
 module.exports = {
-  insertConversion
+  insertConversionRD
 };

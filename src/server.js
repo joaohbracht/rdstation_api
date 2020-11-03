@@ -7,13 +7,15 @@ initRoutes(app);
 
 (async () => {
   const dbElevon = require('./db/db.elevon');
+  const dbProcave = require('./db/db.procave');
 
   try {
-    const result = await dbElevon.sequelize.sync();
-    console.log(result);
-    /* dbElevon.sequelize.sync({ force: true }).then(() => {
-    console.log("Drop and re-sync db.");
-    }); */
+    const elevon = await dbElevon.sequelize.sync();
+    console.log(elevon);
+
+    const procave = await dbProcave.sequelize.sync();
+    console.log(procave);
+
   } catch (error) {
     console.log(error);
   }
