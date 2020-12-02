@@ -8,7 +8,7 @@ let routes = (app) => {
   app.use(express.json());
 
   router.post("/elevon/rd", elevonController.insertConversionRD);
-  router.post("/procave/rd", procaveController.insertConversionRD);
+  router.post("/procave/rdstation", procaveController.insertConversionRD);
 
   app.use("/api", router);
 };

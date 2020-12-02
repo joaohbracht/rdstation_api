@@ -5,13 +5,27 @@ const insertConversionRD = (req, res) => {
 
   let json = req.body;
 
+  const timestamp = json['timestamp'];
+  const rd_origin = json['contact']['funnel']['origin'];
+
+  //split datetime
+  const rd_created_split = timestamp.split("T");
+  const rd_created_splith = rd_created_split[1].split(".");
+  const rd_created_final = rd_created_split[0] + ' ' + rd_created_splith[0]
+
+  //split origin
+  const rd_origin_split = rd_origin.split(" | ");
+  const rd_channel = rd_origin_split[0];
+  const rd_source = rd_origin_split[1];
+
   const createResult = dbRD.create({
     uuid: json['contact']['uuid'],
-    email: json['contact']['email'],
+    date: rd_created_final,
     event_identifier: json['event_identifier'],
-    event_type: json['event_type'],
-    entity_type: json['entity_type'],
-    origin: json['contact']['funnel']['origin']
+    lifecycle_stage: json['contact']['funnel']['lifecycle_stage'],
+    opportunity: json['contact']['funnel']['opportunity'],
+    channel: rd_channel,
+    source: rd_source
   })
     .then(() => {
       console.log(createResult);

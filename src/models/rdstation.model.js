@@ -9,19 +9,31 @@ module.exports = (sequelize, Sequelize) => {
     uuid: {
       type: Sequelize.STRING
     },
+    date: {
+      type: Sequelize.DATEONLY
+    },
     event_identifier: {
       type: Sequelize.STRING
     },
-    event_type: {
+    lifecycle_stage: {
       type: Sequelize.STRING
     },
-    entity_type: {
+    opportunity: {
+      type: Sequelize.BOOLEAN
+    },
+    channel: {
       type: Sequelize.STRING
     },
-    origin: {
+    source: {
       type: Sequelize.STRING
     }
-  });
+  },
+    {
+      // Options
+      tableName: 'rdstation',
+      timestamps: 'false'
+    })
+
 
   return rdstation;
 };
