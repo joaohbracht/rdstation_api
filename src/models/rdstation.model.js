@@ -31,7 +31,7 @@ module.exports = (sequelize, Sequelize) => {
     {
       // Options
       tableName: 'rdstation',
-      timestamps: 'false'
+      timestamps: false
     })
 
 
