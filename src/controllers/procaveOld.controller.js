@@ -23,7 +23,7 @@ const insertConversionRD = (req, res) => {
     first_date: rd_created_final,
     first_event_identifier: json['0']['first_conversion']['content']['identificador'],
     first_channel: json['0']['first_conversion']['conversion_origin']['channel'],
-    first_source: json['0']['first_conversion']['conversion_origin']['source '],
+    first_source: json['0']['first_conversion']['conversion_origin']['source'],
     first_campaign: json['0']['first_conversion']['conversion_origin']['campaign'],
 
     last_date: rd_updated_final,
