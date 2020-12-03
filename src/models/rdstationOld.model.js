@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const rdstation = sequelize.define("rdstation_old", {
+  const rdstation = sequelize.define("rdstation", {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -31,7 +31,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     last_date: {
-      type: Sequelize.STRING
+      type: Sequelize.DATEONLY
     },
     last_event_identifier: {
       type: Sequelize.STRING
@@ -39,7 +39,7 @@ module.exports = (sequelize, Sequelize) => {
   },
     {
       // Options
-      tableName: 'rdstation',
+      tableName: 'rdstation_old',
       timestamps: false
     })
 

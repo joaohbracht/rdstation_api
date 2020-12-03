@@ -20,6 +20,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.rdstation = require("../models/rdstation.model.js")(sequelize, Sequelize);
+db.rdstation = require("../models/rdstationOld.model.js")(sequelize, Sequelize);
 
 module.exports = db;
