@@ -3,10 +3,10 @@ const dbRD = db.rdstation;
 
 const insertConversionRD = (req, res) => {
 
-  let json = req.body;
+  let json = req.body.leads;
 
-  const first_date = json['leads']['first_conversion']['created_at'];
-  const last_date = json['leads']['last_conversion']['created_at'];
+  const first_date = json['first_conversion']['created_at'];
+  const last_date = json['last_conversion']['created_at'];
 
   //split datetime
   const rd_created_split = first_date.split("T");
@@ -18,18 +18,18 @@ const insertConversionRD = (req, res) => {
 
 
   const createResult = dbRD.create({
-    uuid: json['leads']['uuid'],
-    email: json['leads']['email'],
-    opportunity: json['leads']['opportunity'],
+    uuid: json['uuid'],
+    email: json['email'],
+    opportunity: json['opportunity'],
 
     first_date: rd_created_final,
-    first_event_identifier: json['leads']['first_conversion']['content']['identificador'],
-    first_channel: json['leads']['first_conversion']['conversion_origin']['channel'],
-    first_source: json['leads']['first_conversion']['conversion_origin']['source '],
-    first_campaign: json['leads']['first_conversion']['conversion_origin']['campaign'],
+    first_event_identifier: json['first_conversion']['content']['identificador'],
+    first_channel: json['first_conversion']['conversion_origin']['channel'],
+    first_source: json['first_conversion']['conversion_origin']['source '],
+    first_campaign: json['first_conversion']['conversion_origin']['campaign'],
 
     last_date: rd_updated_final,
-    last_event_identifier: json['leads']['last_conversion']['content']['identificador'],
+    last_event_identifier: json['last_conversion']['content']['identificador'],
 
   })
     .then(() => {
