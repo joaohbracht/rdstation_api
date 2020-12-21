@@ -1,9 +1,9 @@
-const dbConfig = require("./db.config.js"); 3
+const dbConfig = require("./db.config.js");
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('elevo561_dw', 'elevo561_dwbi', ',tDkhl58v5EK', {
-  host: "50.116.87.144",
-  port: 3306,
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  port: dbConfig.PORT,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
 
@@ -20,6 +20,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.rdstation = require("../models/rdstation.model.js")(sequelize, Sequelize);
+db.rdstation = require("../models/rdstationOld.model.js")(sequelize, Sequelize);
 
 module.exports = db;

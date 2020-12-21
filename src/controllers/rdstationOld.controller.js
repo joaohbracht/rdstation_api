@@ -1,4 +1,4 @@
-const db = require("../db/db.procave");
+const db = require("../db/db.example");
 const dbRD = db.rdstation;
 
 const insertConversionRD = (req, res) => {

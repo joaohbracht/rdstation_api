@@ -1,5 +1,5 @@
 {
-  "name": "elevon",
+  "name": "rdstation_api",
   "version": "1.0.0",
   "main": "src/server..js",
   "scripts": {
@@ -16,5 +16,5 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
-  "description": "API to receive webhooks and insert into database."
+  "description": "API to receive webhooks and insert into a database."
 }
